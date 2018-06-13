@@ -48,9 +48,8 @@ public class JdbcRepository implements Repository {
     public Customer findCustomerById(String id) throws SQLException {
         ResultSet rs = statement.executeQuery("SELECT * FROM customer where id='" + id + "'");
         Customer customer = null;
-        while (rs.next()) {
-            String name = rs.getString("name");
-            customer = new Customer("", name, "");
+        if (rs.next()) {
+            customer = new Customer(rs.getString("id"), rs.getString("name"), "");
         }
         return customer;
     }

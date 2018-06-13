@@ -1,19 +1,22 @@
 package com.almundo.customerprocessor;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class CustomerProcessor {
+	@Autowired
+	JpaProcessorRepository jpaProcessorRepository;
+	
     public void main(String[] args) throws Exception {
 
-        Repository repository = new JdbcRepository();
+        Repository repository = jpaProcessorRepository;
         CsvReader csvReader = new BasicCsvReader();
 
         process(repository, csvReader);
     }
 
-    public void process(Repository repository, CsvReader csvReader) throws IOException, ClassNotFoundException, SQLException {
+    public void process(Repository repository, CsvReader csvReader) throws Exception {
         repository.init();
         csvReader.init("input.txt");
 
@@ -24,7 +27,7 @@ public class CustomerProcessor {
 
             } else if (fields.get(0).startsWith("A")) {
                 Customer customer = repository.findCustomerById(fields.get(4));
-                repository.persistAddress(new Address(fields.get(1), "address of " + customer.getName(), fields.get(2), fields.get(3), fields.get(4)));
+                repository.persistAddress(new Address(fields.get(1), "address of " + customer.getName(), fields.get(2), fields.get(3), customer.getId()));
             }
         });
 

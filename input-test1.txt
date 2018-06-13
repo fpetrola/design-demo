@@ -1,5 +1,5 @@
 C,1,Chavo,1000
-A,10,Corrientes,100,1
+A,10,"Avenida, Corrientes",100,1
 A,11,Corrientes,101,1
 A,12,Rivadavia,103,1
 C,2,Chimoltrufia,2000

@@ -1,37 +1,45 @@
 package com.almundo.customerprocessor;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
-    private final String id;
-    private final String description;
-    private final String street;
-    private final String number;
-    private final String customerId;
+	@Id
+	private String id;
+	private String description;
+	private String street;
+	private String number;
+	private String customerId;
 
-    public Address(String id, String description, String street, String number, String customerId) {
-        this.id = id;
-        this.description = description;
-        this.street = street;
-        this.number = number;
-        this.customerId = customerId;
-    }
+	public Address() {
+	}
 
-    public String getId() {
-        return id;
-    }
+	public Address(String id, String description, String street, String number, String customerId) {
+		this.id = id;
+		this.description = description;
+		this.street = street;
+		this.number = number;
+		this.customerId = customerId;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getStreet() {
-        return street;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public String getNumber() {
-        return number;
-    }
+	public String getStreet() {
+		return street;
+	}
 
-    public String getCustomerId() {
-        return customerId;
-    }
+	public String getNumber() {
+		return number;
+	}
+
+	public String getCustomerId() {
+		return customerId;
+	}
 }

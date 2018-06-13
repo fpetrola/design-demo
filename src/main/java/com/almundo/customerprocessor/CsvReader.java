@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public interface CsvReader {
-    void forEach(RowProcessor rowProcessor) throws IOException, SQLException;
+    void forEach(RowProcessor rowProcessor) throws Exception;
 
     void init(String fileName) throws FileNotFoundException;
 }
