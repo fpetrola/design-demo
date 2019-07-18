@@ -1,6 +1,6 @@
-
 db/
-
 \.settings/
-
+db4o
+*.class
 \.idea/
+*.iml
