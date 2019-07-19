@@ -6,19 +6,6 @@ import t.CustomerDataSet;
 public class CustomerProcessorTest extends BaseTest {
 
 	@Test
-	public void testPlainCsv() throws Exception {
-
-		CustomerDataSet dataSet = getDefaultDataSet();
-
-		String input = createInput(dataSet);
-		String result = createResult(dataSet);
-
-		String output = executeProcessor(input, result);
-
-		Assert.assertEquals(result, output);
-	}
-
-	@Test
 	public void testCustomerNameWithComma() throws Exception {
 
 		CustomerDataSet dataSet = new CustomerDataSet("\"Chavo, del ocho\"", "Chimoltrufia", "Chompiras", "Corrientes", "Rivadavia", "Cordoba", "Santa fe", "100", "201", "2");
@@ -60,4 +47,18 @@ public class CustomerProcessorTest extends BaseTest {
 		} catch (Exception e) {
 		}
 	}
+
+	@Test
+	public void testPlainCsv() throws Exception {
+
+		CustomerDataSet dataSet = getDefaultDataSet();
+
+		String input = createInput(dataSet);
+		String result = createResult(dataSet);
+
+		String output = executeProcessor(input, result);
+
+		Assert.assertEquals(result, output);
+	}
+
 }

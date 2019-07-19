@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.junit.After;
@@ -32,15 +33,20 @@ public class BaseTest {
 			Class.forName("org.hsqldb.jdbc.JDBCDriver");
 			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:db/testdb", "SA", "");
 			Statement statement = conn.createStatement();
-	
-			statement.executeUpdate("DROP table customer;");
-			statement.executeUpdate("DROP table address;");
-			conn.close();
+
+            try {
+                statement.executeUpdate("DROP table customer;");
+                statement.executeUpdate("DROP table address;");
+            } catch (SQLException e) {
+            }
+            conn.close();
 	
 			writeInput(createInput(getDefaultDataSet()));
 			File file = new File("db");
 			file.mkdir();
+			new File("db4o").delete();
 		} catch (Exception e) {
+		    e.printStackTrace();
 		}
 	}
 
