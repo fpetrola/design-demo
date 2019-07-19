@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 public class SpringBootConsoleApplication implements CommandLineRunner {
 
-	@Autowired
-	JpaProcessorRepository jpaProcessorRepository;
+//	@Autowired
+//	JpaProcessorRepository jpaProcessorRepository;
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(SpringBootConsoleApplication.class, args);
