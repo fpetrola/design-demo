@@ -18,6 +18,7 @@ public class SpringBootConsoleApplication implements CommandLineRunner {
 	}
 
 	public void run(String... args) throws Exception {
-		new CustomerProcessor().process(new JdbcRepository(), new CsvParserCsvReader());
+//		new CustomerProcessor().process(jpaProcessorRepository, new CsvParserCsvReader());
+		NoDesignCustomerProcessor.main(null);
 	}
 }

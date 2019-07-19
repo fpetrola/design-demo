@@ -20,7 +20,6 @@ public class CustomerProcessor {
         repository.init();
         csvReader.init("input.txt");
 
-
         csvReader.forEach(fields -> {
             if (fields.get(0).startsWith("C")) {
                 repository.persistCustomer(new Customer(fields.get(1), fields.get(2), fields.get(3)));
@@ -39,5 +38,4 @@ public class CustomerProcessor {
 
         repository.close();
     }
-
 }
