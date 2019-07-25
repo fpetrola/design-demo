@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 
@@ -45,6 +46,28 @@ public class BaseTest {
     public CustomerDataSet getDefaultDataSet() {
         return new CustomerDataSet("Chavo", "Chimoltrufia", "Chompiras", "Corrientes", "Rivadavia", "Cordoba", "Santa fe", "100", "201", "2", "1000", "2000", "3000");
     }
+	@After
+	public void tearDown() throws Exception {
+		try {
+			Class.forName("org.hsqldb.jdbc.JDBCDriver");
+			Connection conn = DriverManager.getConnection("jdbc:hsqldb:file:db/testdb", "SA", "");
+			Statement statement = conn.createStatement();
+
+            try {
+                statement.executeUpdate("DROP table customer;");
+                statement.executeUpdate("DROP table address;");
+            } catch (SQLException e) {
+            }
+            conn.close();
+	
+			writeInput(createInput(getDefaultDataSet()));
+			File file = new File("db");
+			file.mkdir();
+			new File("db4o").delete();
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+	}
 
     public String createResult(CustomerDataSet customerDataSet) {
         String customer1 = deleteQuotes(customerDataSet.getCustomer1());
