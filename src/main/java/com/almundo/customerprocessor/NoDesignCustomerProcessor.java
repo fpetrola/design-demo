@@ -40,8 +40,7 @@ public class NoDesignCustomerProcessor {
             } else if (fields.get(0).startsWith("A")) {
                 ResultSet rs = statement.executeQuery("SELECT * FROM customer where id='" + fields.get(4) + "'");
                 if (rs.next()) {
-                    String name = rs.getString("name");
-                    statement.executeUpdate("INSERT INTO address VALUES (" + fields.get(1) + ",'address of " + name + "', '" + fields.get(2) + "', '" + fields.get(3) + "', " + rs.getString("id") + ")");
+                    statement.executeUpdate("INSERT INTO address VALUES (" + fields.get(1) + ",'" + "address of " + rs.getString("name") + " - " + rs.getString("dni") + "', '" + fields.get(2) + "', '" + fields.get(3) + "', " + rs.getString("id") + ")");
                 }
             }
             line = lineNumberReader.readLine();

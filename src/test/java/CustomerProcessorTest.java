@@ -21,7 +21,7 @@ public class CustomerProcessorTest extends BaseTest {
 	@Test
 	public void testCustomerNameWithComma() throws Exception {
 
-		CustomerDataSet dataSet = new CustomerDataSet("\"Chavo, del ocho\"", "Chimoltrufia", "Chompiras", "Corrientes", "Rivadavia", "Cordoba", "Santa fe", "100", "201", "2");
+		CustomerDataSet dataSet = new CustomerDataSet("\"Chavo, del ocho\"", "Chimoltrufia", "Chompiras", "Corrientes", "Rivadavia", "Cordoba", "Santa fe", "100", "201", "2", "1000", "2000", "3000");
 
 		String input = createInput(dataSet);
 		String result = createResult(dataSet);
@@ -34,7 +34,7 @@ public class CustomerProcessorTest extends BaseTest {
 	@Test
 	public void testAddressNumberWithComma() throws Exception {
 
-		CustomerDataSet dataSet = new CustomerDataSet("Chavo", "Chimoltrufia", "Chompiras", "Corrientes", "Rivadavia", "Cordoba", "Santa fe", "\"100\"", "201", "2");
+		CustomerDataSet dataSet = new CustomerDataSet("Chavo", "Chimoltrufia", "Chompiras", "Corrientes", "Rivadavia", "Cordoba", "Santa fe", "\"100\"", "201", "2", "1000", "2000", "3000");
 
 		String input = createInput(dataSet);
 		String result = createResult(dataSet);
@@ -50,7 +50,7 @@ public class CustomerProcessorTest extends BaseTest {
 		String result;
 		String output;
 		try {
-			CustomerDataSet dataSet = new CustomerDataSet("Chavo", "Chimoltrufia", "Chompiras", "Corrientes", "Rivadavia", "Cordoba", "Santa fe", "100", "201", "9' or '1'='1");
+			CustomerDataSet dataSet = new CustomerDataSet("Chavo", "Chimoltrufia", "Chompiras", "Corrientes", "Rivadavia", "Cordoba", "Santa fe", "100", "201", "9' or '1'='1", "1000", "2000", "3000");
 
 			String input = createInput(dataSet);
 			result = createResult(dataSet);

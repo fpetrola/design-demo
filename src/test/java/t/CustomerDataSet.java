@@ -11,8 +11,11 @@ public class CustomerDataSet {
     private final String addressNumber1;
     private final String address3Number2;
     private final String customer1Id;
+    private final String dni1;
+    private final String dni2;
+    private final String dni3;
 
-    public CustomerDataSet(String customer1, String customer2, String customer3, String address1, String address2, String address3, String address4, String addressNumber1, String address3Number2, String customer1Id) {
+    public CustomerDataSet(String customer1, String customer2, String customer3, String address1, String address2, String address3, String address4, String addressNumber1, String address3Number2, String customer1Id, String dni1, String dni2, String dni3) {
         this.customer1 = customer1;
         this.customer2 = customer2;
         this.customer3 = customer3;
@@ -23,6 +26,9 @@ public class CustomerDataSet {
         this.addressNumber1 = addressNumber1;
         this.address3Number2 = address3Number2;
 		this.customer1Id = customer1Id;
+        this.dni1 = dni1;
+        this.dni2 = dni2;
+        this.dni3 = dni3;
     }
 
     public String getCustomer1() {
@@ -64,4 +70,17 @@ public class CustomerDataSet {
 	public String getCustomer2Id() {
 		return customer1Id;
 	}
+
+    public String getDni1() {
+        return dni1;
+    }
+
+    public String getDni2() {
+        return dni2;
+    }
+
+    public String getDni3() {
+        return dni3;
+    }
+
 }
