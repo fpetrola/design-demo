@@ -95,7 +95,6 @@ public class BaseTest {
             System.setOut(new PrintStream(temporalOut));
 
             ProcessorApplication.main(new String[]{});
-            // new CustomerProcessor().main(null);
 
             System.setOut(lastOut);
 
