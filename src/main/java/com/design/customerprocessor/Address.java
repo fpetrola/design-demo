@@ -1,4 +1,4 @@
-package com.almundo.customerprocessor;
+package com.design.customerprocessor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -6,21 +6,21 @@ import javax.persistence.Id;
 @Entity
 public class Address {
     @Id
-    private String id;
-    private String description;
-    private String street;
-    private String number;
-    private String customerId;
+    private  String id;
+    private  String description;
+    private  String street;
+    private  String number;
+    private  String customer;
 
     public Address() {
     }
 
-    public Address(String id, String description, String street, String number, String customerId) {
+    public Address(String id, String description, String street, String number, String customer) {
         this.id = id;
         this.description = description;
         this.street = street;
         this.number = number;
-        this.customerId = customerId;
+        this.customer = customer;
     }
 
     public String getId() {
@@ -39,7 +39,7 @@ public class Address {
         return number;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    public String getCustomer() {
+        return customer;
     }
 }

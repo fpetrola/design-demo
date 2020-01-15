@@ -1,4 +1,4 @@
-package t;
+package com.design.customerprocessor;
 
 public class CustomerDataSet {
     private final String customer1;

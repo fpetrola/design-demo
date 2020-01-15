@@ -1,4 +1,4 @@
-package com.almundo.customerprocessor;
+package com.design.customerprocessor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -6,9 +6,9 @@ import javax.persistence.Id;
 @Entity
 public class Customer {
     @Id
-    private String id;
-    private String name;
-    private String dni;
+    private  String id;
+    private  String name;
+    private  String dni;
 
     public Customer() {
     }

@@ -4,3 +4,6 @@ db4o
 *.class
 \.idea/
 *.iml
+
+*.lst
+target/

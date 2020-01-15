@@ -1,4 +1,4 @@
-package com.almundo.customerprocessor;
+package com.design.customerprocessor;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,19 +8,19 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class ManualCsvReader implements CsvReader {
+public class BasicCsvReader implements CsvReader {
 
     private FileReader fileReader;
     private LineNumberReader lineNumberReader;
 
     @Override
-    public void forEach(RowProcessor rowProcessor) throws IOException, SQLException {
+    public void forEachRow(RowProcessor rowProcessor) throws IOException, SQLException {
         String line = lineNumberReader.readLine();
 
         while (line != null) {
             List<String> fields = Arrays.asList(line.split(","));
 
-            rowProcessor.processLine(fields);
+            rowProcessor.processRow(fields);
             line = lineNumberReader.readLine();
         }
 
@@ -28,8 +28,8 @@ public class ManualCsvReader implements CsvReader {
     }
 
     @Override
-    public void init(String fileName) throws FileNotFoundException {
-        fileReader = new FileReader(fileName);
+    public void load(String filename) throws FileNotFoundException {
+        fileReader = new FileReader(filename);
         lineNumberReader = new LineNumberReader(fileReader);
     }
 }

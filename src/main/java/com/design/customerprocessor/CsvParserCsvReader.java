@@ -1,4 +1,4 @@
-package com.almundo.customerprocessor;
+package com.design.customerprocessor;
 
 import org.apache.commons.collections.IteratorUtils;
 import org.apache.commons.csv.CSVParser;
@@ -12,10 +12,10 @@ import static org.apache.commons.csv.CSVFormat.DEFAULT;
 public class CsvParserCsvReader implements CsvReader {
     private CSVParser csvParser;
 
-    public void forEach(RowProcessor rowProcessor) throws IOException, SQLException {
-        csvParser.forEach(fields -> rowProcessor.processLine(IteratorUtils.toList(fields.iterator())));
+    public void forEachRow(RowProcessor rowProcessor) throws IOException, SQLException {
+        csvParser.forEach(fields -> rowProcessor.processRow(IteratorUtils.toList(fields.iterator())));
     }
-    public void init(String fileName) throws Exception {
+    public void load(String fileName) throws Exception {
         csvParser = new CSVParser(new FileReader(fileName), DEFAULT);
     }
 }

@@ -1,8 +1,8 @@
-package com.almundo.customerprocessor;
+package com.design.customerprocessor;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public interface RowProcessor {
-    void processLine(List<String> fields);
+    void processRow(List<String> fields);
 }
