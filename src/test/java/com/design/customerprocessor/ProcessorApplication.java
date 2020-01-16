@@ -1,6 +1,5 @@
 package com.design.customerprocessor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,7 +17,16 @@ public class ProcessorApplication implements CommandLineRunner {
     }
 
     public void run(String... args) throws Exception {
-        new NoDesignCustomerProcessor().main(null);
+
+        Repository repository = new InMemoryRepository();
+        repository.init();
+
+        CsvReader csvReader = new CsvParserCsvReader();
+        csvReader.load("input.txt");
+
+        new NoDesignCustomerProcessor().process(repository, csvReader);
+
+        repository.close();
     }
 
 }
