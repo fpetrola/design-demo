@@ -18,15 +18,7 @@ public class ProcessorApplication implements CommandLineRunner {
 
     public void run(String... args) throws Exception {
 
-        Repository repository = new InMemoryRepository();
-        repository.init();
-
-        CsvReader csvReader = new CsvParserCsvReader();
-        csvReader.load("input.txt");
-
-        new NoDesignCustomerProcessor().process(repository, csvReader);
-
-        repository.close();
+        new NoDesignCustomerProcessor().main(null);
     }
 
 }
